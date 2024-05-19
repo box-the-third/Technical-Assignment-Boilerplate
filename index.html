@@ -72,6 +72,7 @@
                   </div>
 
                   <div
+                    id="user-menu"
                     class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
                     role="menu"
                     aria-orientation="vertical"
@@ -112,8 +113,26 @@
       <main>
         <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
           <!-- Your content -->
+        
         </div>
+        
       </main>
     </div>
+    <script>
+
+      const userMenuButton = document.getElementById('user-menu-button');
+      const userMenu = document.getElementById('user-menu');
+
+      userMenuButton.addEventListener('click', function(){
+        event.stopPropagation();
+        userMenu.classList.toggle('hidden');
+      });
+
+      document.addEventListener('click', function(event) {
+      if (event.target !== userMenuButton && !userMenu.contains(event.target)){
+        userMenu.classList.add('hidden')}
+      });
+
+    </script>
   </body>
 </html>
